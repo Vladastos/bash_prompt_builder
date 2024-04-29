@@ -1,4 +1,6 @@
 #!/bin/bash
+BOOKMARKS_DIR="$FUNCTIONS_DIR/modules/bookmarks"
+
 function trim_input(){
 	local input="$1"
 	local output
@@ -22,7 +24,6 @@ function open_fzf() {
 }
 
 function add_bookmark(){
-	local bookmark_file="$HOME/.config/bashconfig/bookmarks/bookmarks"
 	if ! grep -Fxq "$PWD" "$bookmark_file"; then
 		echo "$PWD" >> "$bookmark_file"
 	else 
